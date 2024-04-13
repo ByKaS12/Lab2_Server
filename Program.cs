@@ -50,9 +50,6 @@ void menu()
     GenerateSig();
     VerifySig(sharedParameters, hash, signedHash);
 }
-menu();
-menu2();
-
 void menu2()
 {
     GetPublicKeyServer();
@@ -60,12 +57,12 @@ void menu2()
     StreamReader reader = new StreamReader($"{Environment.CurrentDirectory}" + "//test.txt");
     sharedParameters.Modulus = Convert.FromBase64String(reader.ReadToEnd());
     reader.Close();
-    VerifySig(sharedParameters,hash, signedHash);
+    VerifySig(sharedParameters, hash, signedHash);
 }
 
 void AutoGenerateMessageServer()
 {
-    data = Convert.FromBase64String($"{new Random().Next(0,10)}" + $"{new Random().Next(0,10)}" + $"{new Random().Next(0, 10)}" + $"{new Random().Next(0, 10)}");
+    data = Convert.FromBase64String($"{new Random().Next(0, 10)}" + $"{new Random().Next(0, 10)}" + $"{new Random().Next(0, 10)}" + $"{new Random().Next(0, 10)}");
     hash = alg.ComputeHash(data);
 
 
@@ -88,3 +85,6 @@ void GetPublicKeyServer()
 
 
 }
+menu();
+menu2();
+
